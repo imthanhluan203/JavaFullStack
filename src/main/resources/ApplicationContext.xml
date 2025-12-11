@@ -8,4 +8,46 @@
     <bean id="Mybean" class="car.example.bean.Mybean">
         <property name="message" value="I'm Nguyen Thanh Luan"></property>
     </bean>
+    <bean id="specification" class="car.example.constructor.injection.Specification">
+        <property name="make" value="Toyota"></property>
+        <property name="model" value="Vios"></property>
+    </bean>
+    <bean id="car" class="car.example.constructor.injection.Car">
+        <constructor-arg ref="specification"></constructor-arg>
+    </bean>
+
+<!--    <bean id="specification2" class="car.example.autowiring.name.Specification">-->
+<!--        <property name="make" value="Toyota"></property>-->
+<!--        <property name="model" value="Vios"></property>-->
+<!--    </bean>-->
+<!--    <bean id="car2" class="car.example.autowiring.name.Car" autowire="byName">-->
+
+<!--    </bean>-->
+
+    <bean id="specification3" class="car.example.autowiring.type.Specification">
+        <property name="make" value="Toyota"></property>
+        <property name="model" value="Vios"></property>
+    </bean>
+    <bean id="car3" class="car.example.autowiring.type.Car" autowire="byType">
+
+    </bean>
+    <bean id="specification4" class="car.example.autowiring.constructor.Specification">
+        <property name="make" value="Toyota"></property>
+        <property name="model" value="Vios"></property>
+    </bean>
+    <bean id="car4" class="car.example.autowiring.constructor.Car" autowire="constructor">
+
+    </bean>
+
+    <bean id="myUserDatabase" class="com.loose.coupling.UserDatabase">
+    </bean>
+    <bean id="myUserWebService" class="com.loose.coupling.UserWebService">
+    </bean>
+
+    <bean id="userDatabase" class="com.loose.coupling.UserManager">
+        <constructor-arg ref="myUserDatabase"></constructor-arg>
+    </bean>
+    <bean id="userWebservice" class="com.loose.coupling.UserManager">
+        <constructor-arg ref="myUserWebService"></constructor-arg>
+    </bean>
 </beans>
